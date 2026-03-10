@@ -1,38 +1,232 @@
-.App {
-  text-align: center;
+.app{
+text-align:center;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f6f8;
+min-height:100vh;
+padding-top:20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* board layout */
+.board{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* columns */
+.column{
+background:#ffffff;
+width:300px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.08);
+overflow:hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* column header */
+.column-header{
+padding:15px;
+font-weight:bold;
+font-size:18px;
+text-align:left;
+border-top:6px solid #6366f1;
+background:white;
+}
+.column:nth-child(1) .column-header{
+border-top:6px solid #ff0000;
 }
 
-.App-link {
-  color: #61dafb;
+.column:nth-child(2) .column-header{
+border-top:6px solid #facc15;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.column:nth-child(3) .column-header{
+border-top:6px solid #22c55e;
+}
+
+/* column content */
+.column-content{
+padding:15px;
+background:#f8fafc;
+min-height:200px;
+}
+
+/* task card */
+.task{
+background:white;
+padding:14px;
+margin-bottom:12px;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.08);
+font-size:16px;
+font-weight:bold;
+border-left:6px solid grey;
+}
+/* Todo tasks */
+.column:nth-child(1) .task{
+border-left:6px solid #ef4444;
+}
+
+/* In Progress tasks */
+.column:nth-child(2) .task{
+border-left:6px solid #facc15;
+}
+
+/* Done tasks */
+.column:nth-child(3) .task{
+border-left:6px solid #22c55e;
+}
+
+/* buttons */
+
+
+.progress-btn{
+background:#22c55e;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.done-btn{
+background:#3b82f6;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:#ef4444;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.add-btn{
+background:#22c55e;
+color:white;
+border:none;
+width:32px;
+height:32px;
+border-radius:60%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+margin-left:auto;
+font-size:14px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.add-btn:hover{
+background:#16a34a;
+}
+
+.move-btn{
+background:#3b82f6;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+.move-btn:hover{
+background:#2563eb;
+}
+
+/* add task button */
+button{
+cursor:pointer;
+}
+.column-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 15px;
+font-weight:bold;
+}
+
+.add-btn{
+background:#22c55e;
+color:white;
+border:none;
+width:28px;
+height:28px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-size:14px;
+}
+
+.add-btn:hover{
+background:#16a34a;
+}
+.task-buttons{
+display:flex;
+justify-content:center;
+gap:18px;   /* increase distance between move and delete buttons */
+margin-top:10px;
+}
+.edit-btn{
+background:#facc15;
+color:black;
+border:none;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.edit-btn:hover{
+background:#eab308;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* tablets */
+@media (max-width: 900px){
+
+.board{
+flex-direction: column;
+align-items: center;
+gap:25px;
+}
+
+.column{
+width:90%;
+}
+
+}
+
+/* mobile phones */
+@media (max-width: 500px){
+
+.board{
+flex-direction: column;
+align-items:center;
+gap:20px;
+}
+
+.column{
+width:95%;
+}
+
+.column-header{
+font-size:16px;
+padding:12px;
+}
+
+.task{
+font-size:14px;
+padding:12px;
+}
+
 }
